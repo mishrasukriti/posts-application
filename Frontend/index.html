@@ -1,0 +1,148 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Posts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- <a class="navbar-brand">Live Posts</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">Posts <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add_post.html">Add Post <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="postListDiv">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-4"></div>
+            <div class="col-xs-12 col-sm-4" style="margin-top: 20px;">
+                <div class="input-group">
+                    <input style="margin-right:10px;" id="findTopicsId" class="form-control input100" placeholder="Search Topic">
+                    <span class="input-group-btn">
+                        <button class="login100-form-btn" onclick="onFindTopics()">Find</button>
+                    </span>
+                </div>
+                <div>
+                    <div style="margin-top: 15px;" class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Added Date
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button type="button" class="dropdown-item active" value="all" onclick="dateFilter(value)"  id="allTimeId">All time</button>
+                            <button type="button" class="dropdown-item" onclick="dateFilter(value)" value="day" id="dayId" >1 day ago</button>
+                            <button type="button" class="dropdown-item" onclick="dateFilter(value)" value="week" id="weekId" >1 week ago</button>
+                            <button type="button" class="dropdown-item" onclick="dateFilter(value)" value="month" id="monthId" >1 month ago</button>
+                        </div>
+                    </div>
+
+                    <!-- Split dropup button -->
+                    <div style="margin-top: 15px;" class="btn-group">
+                        <button type="button" class="btn btn-secondary">
+                            Posts per Page
+                        </button>
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button type="button" class="dropdown-item active" onclick="rowsFilter(value)" id="row1Id" value=1>1</button>
+                            <button type="button" class="dropdown-item" onclick="rowsFilter(value)" value=2 id="row2Id" >2</button>
+                            <button type="button" class="dropdown-item" onclick="rowsFilter(value)" value=3 id="row3Id" >3</button>
+                            <button type="button" class="dropdown-item" onclick="rowsFilter(value)" value=4 id="row4Id" >4</button>
+                            <button type="button" class="dropdown-item" onclick="rowsFilter(value)" value=5 id="row5Id" >5</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-4"></div>
+            <div class="col-xs-12 col-sm-4" id="mainDiv" style="margin-top: 20px;">
+
+            </div>
+
+            <div class="col-xs-12 col-sm-4" id="alertDiv">
+
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+    <div class="row d-none" id="editPostDiv">
+        <div class="col-xs-12 col-sm-4"></div>
+        <div class="col-xs-12 col-sm-4">
+            <h2>Edit Post</h2>
+            <form id="editPostFormId">
+                <div class="form-group">
+                    <label for="Title">Title</label>
+                    <input id="editTitleId" type="text" class="form-control input100" formControlName="title" required />
+                </div>
+                <div class="form-group">
+                    <label for="Desc">Description</label>
+                    <textarea id="editDescId" type="desc" class="form-control input100" rows="5" formControlName="desc"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="ImagePath">Image</label>
+                    <input id="editImgPathId" type="text" class="form-control" onblur="onImagePathChange()"
+                        formControlName="imagePath" required />
+                    <img id="editImageId" class="img-fluid" src="" /> -->
+
+                </div>
+
+                <button type="submit" id="editSaveBtnId" class="btn btn-success login100-form-btn">Save</button>|
+                <button type="button" class="btn btn-primary login100-form-btn" onclick="onCancel()">Cancel</button>
+                <div id="saveAlertId">
+                <div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>

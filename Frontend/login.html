@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live Posts</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+
+	  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+    <body>
+      <div class="limiter">
+        <div class="container-login100">
+          <div class="wrap-login100">
+            <form class="login100-form validate-form d-none"  id="registerformId">
+              <span class="login100-form-title p-b-34">
+                Account Registration
+              </span>
+              
+              <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20" data-validate="Type Email Id">
+                <input id="registerEmaiId" class="input100" type="text" name="username" placeholder="Email Id">
+                <span class="focus-input100"></span>
+              </div>
+
+              <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type First name">
+                <input class="input100" type="text" name="username" placeholder="First name">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type Last name">
+                <input class="input100" type="text" name="username" placeholder="Last name">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                <input class="input100" type="password" name="pass" placeholder="Enter Password" id="registerPasswordId" required>
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                <input class="input100" type="password" name="pass" placeholder="Re-Enter Password" required>
+                <span class="focus-input100"></span>
+              </div>
+
+              <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                <select class="input100" name="Role" id="role" required>
+                  <option value="">Sign Up As</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+                <span class="focus-input100"></span>
+              </div>
+
+              
+              
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                  Sign Up
+                </button>
+              </div>
+    
+              <div class="w-full text-center p-t-27 p-b-239">
+                <span class="txt1">
+                  Already Registered?
+                </span>
+    
+                <a href="#" class="txt2" onclick="onAlreadyRegistered()">
+                  Sign In
+                </a>
+              </div>
+    
+              <!-- <div class="w-full text-center">
+                <a href="#" class="txt3">
+                  Sign Up
+                </a>
+              </div> -->
+            </form>
+            
+            <form class="login100-form validate-form" id="loginFormId">
+              <span class="login100-form-title p-b-34">
+                Account Login
+              </span>
+              
+              <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+                <input class="input100" type="text" name="username" placeholder="User name" id="loginEmailId">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20" data-validate="Type password">
+                <input class="input100" type="password" name="pass" placeholder="Password" id="loginPasswordId">
+                <span class="focus-input100"></span>
+              </div>
+              
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                  Sign in
+                </button>
+              </div>
+    
+              <div class="w-full text-center p-t-27">
+                <span class="txt1">
+                  Forgot
+                </span>
+    
+                <a href="#" class="txt2" onclick="onResetPassword()">
+                  Password?
+                </a>
+              </div>
+
+              <div class="w-full text-center p-t-2">
+                <span class="txt1">
+                  Don't have an account?
+                </span>
+    
+                <a href="#" class="txt2" onclick="onCreateAccount()">
+                  Sign Up
+                </a>
+              </div>
+    
+              <!-- <div class="w-full text-center">
+                <a href="#" class="txt3" onclick="onCreateAccount()">
+                  Sign Up
+                </a>
+              </div> -->
+            </form>
+
+            <form  class="login100-form validate-form d-none" id="resetFormId">
+              
+              <!-- <p class="message"> <a href="#" >Sign In</a></p> -->
+
+              <span class="login100-form-title p-b-34">
+                Reset Password
+              </span>
+              
+              <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+                <input class="input100" type="text" placeholder="username" id="resetEmailId" required>
+                <span class="focus-input100"></span>
+              </div>
+              
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit">
+                  Reset Password
+                </button>
+              </div>
+    
+              <div class="w-full text-center p-t-27">
+                <span class="txt1">
+                  Want to sign in?
+                </span>
+    
+                <a href="#" class="txt2" onclick="onSignIn()">
+                  Sign In
+                </a>
+              </div>
+
+              <div class="w-full text-center p-t-2">
+                <span class="txt1">
+                  Don't have an account?
+                </span>
+    
+                <a href="#" class="txt2" onclick="onCreateAccount()">
+                  Sign Up
+                </a>
+              </div>
+            </form> 
+    
+            <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+          </div>
+        </div>
+      </div>
+          <a class="d-none" href="index.html" id="shortenPageLinkId"></a>
+    </body>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/main.js"></script>
+    
+    
+</html> 

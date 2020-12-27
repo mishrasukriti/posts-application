@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Reset</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="login-page d-none" id="resetPageId">
+            <div class="form d-none" id="passFormDiv">
+              <form id="passFormId">
+                <h3 style="margin-bottom: 30px;color:  #007bff;"><b>Password Reset</b></h3>
+                <input type="password" placeholder="password" id="resetPasswordId" required>
+                <button type="submit">reset</button>
+                <p class="message">Want to sign in? <a href="login.html">Sign In</a></p>
+              </form>
+              
+            </div>
+            <div class="form d-none" id="unauthFormDiv">
+              <form id="unauthFormId">
+                <h3 style="margin-bottom: 30px;color:  #007bff;"><b>You are not authorized to view this page</b></h3>
+              </form>
+            </div>
+          </div>
+    </body>
+    <script src="reset.js"></script>
+    
+    
+</html>
