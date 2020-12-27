@@ -1,4 +1,4 @@
-let url = "http://localhost:3000"
+let url = "https://sukriti-posts-application.herokuapp.com"
 
 let jwt_token = sessionStorage.getItem("JWT_Token")
 let date_dict = {

@@ -1,4 +1,4 @@
-let url = "http://localhost:3000"
+let url = "https://sukriti-posts-application.herokuapp.com"
 let jwt_token = sessionStorage.getItem("JWT_Token")
 document.getElementById('savePostFormId').addEventListener('submit', function(e) {
     e.preventDefault(); //to prevent form submission
@@ -17,7 +17,7 @@ function onSave(){
         }),
         headers: {
             'Content-type': 'application/json',
-            Authorization : jwt_token
+            Authorization : sessionStorage.getItem("JWT_Token")
         }
         })
         .then((resp) => resp.json())

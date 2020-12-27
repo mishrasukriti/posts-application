@@ -1,5 +1,5 @@
 
-let url = "http://localhost:3000"
+let url = "https://sukriti-posts-application.herokuapp.com"
 
 function onCreateAccount(){
     let loginForm = document.getElementById("loginFormId")
